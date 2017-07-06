@@ -14,4 +14,12 @@ def ninja():
 def dojo():
 	return render_template('dojo.html')
 
+@app.route('/process', methods=['POST'])
+def process():
+	name = request.form['name']
+	email = request.form['email']
+	print name
+	print email
+	return render_template('process.html',name=name, email=email)
+
 app.run(debug=True)
