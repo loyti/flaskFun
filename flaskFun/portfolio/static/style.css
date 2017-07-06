@@ -1,0 +1,22 @@
+.main{
+	margin: 20px;
+	padding: 20px;
+	background: rgba(0,0,0,.5);
+}
+h1 {
+	text-align: center;
+	margin: 20px;
+	background: rgba(0,0,0,.5);
+	color: #fff;
+}
+h2 {
+	background: #aaa;
+	margin: 20px;
+}
+a {
+	color: #ddd;
+	
+}
+a:hover {
+	color: red;
+}
