@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<head>
+        <title>Meet Michelangelo</title>
+        <link rel='stylesheet' type='text/css' href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+        <div class='main'>
+                <h1>Meet Michelangelo</h1>
+                <img src="{{ url_for('static', filename='Michelangelo.jpg') }}">
+                <p><a href='/orange'>Michelangelo</a></p>
+                <img src="{{ url_for('static', filename='tmnt.png') }}">
+                <h4><a href='/turtle'>See all Ninja's</a></h4>
+        </div>
+</body>
+</html>

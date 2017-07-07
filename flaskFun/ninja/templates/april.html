@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<head>
+        <title>Try another Ninja URLs</title>
+        <link rel='stylesheet' type='text/css' href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+        <div class='main'>
+                <h1>Try another Ninja URL</h1>
+		<img src="{{ url_for('static', filename='april.jpg') }}">
+		<p><a href='/april'>Meet April</a></p>
+		<h4>She suggests you try another URL</h4>
+		<h2>Meet the Ninja's</h2>
+                <img src="{{ url_for('static', filename='tmnt.png') }}">
+		<p><a href='/turtle'>Meet the Ninja's</a></p>
+	</div>
+</body>
+</html>

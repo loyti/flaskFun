@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+        <title>Meet the Ninja's</title>
+        <link rel='stylesheet' type='text/css' href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+        <div class='main'>
+		<h1>Meet the Ninja's</h1>
+		<img src="{{ url_for('static', filename='tmnt.png') }}">
+		<h2>Learn about the individual Ninja's<h2>
+		<img src="{{ url_for('static', filename='donatello.jpg') }}">
+		<p><a href='/purple'>Donatello</a></p>
+		<img src="{{ url_for('static', filename='raphael.jpg') }}">
+		<p><a href='/red'>>Raphael</a></p>
+		<img src="{{ url_for('static', filename='michelangelo.jpg') }}">
+		<p><a href='/orange'>Michelangelo</a></p>
+		<img src="{{ url_for('static', filename='leonardo.jpg') }}">
+		<p><a href='/blue'>Leonardo</a></p>
+	</div>
+</body>
+</html>
