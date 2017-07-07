@@ -7,15 +7,21 @@
         <div class='main'>
 		<h1>Meet the Ninja's</h1>
 		<img src="{{ url_for('static', filename='tmnt.png') }}">
+		<p>The session count is: {{ session['counter'] }}
+		<form action = '/addSession' method = 'post'>
+  		<button>Add Session</button>
+		</form>
+		<form action = '/reset_count' method = 'post'>
+		<button>Reset Session Count</button>
 		<h2>Learn about the individual Ninja's<h2>
 		<img src="{{ url_for('static', filename='donatello.jpg') }}">
-		<p><a href='/purple'>Donatello</a></p>
+		<p><a href='/turtle/purple'>Donatello</a></p>
 		<img src="{{ url_for('static', filename='raphael.jpg') }}">
-		<p><a href='/red'>>Raphael</a></p>
+		<p><a href='/turtle/red'>Raphael</a></p>
 		<img src="{{ url_for('static', filename='michelangelo.jpg') }}">
-		<p><a href='/orange'>Michelangelo</a></p>
+		<p><a href='/turtle/orange'>Michelangelo</a></p>
 		<img src="{{ url_for('static', filename='leonardo.jpg') }}">
-		<p><a href='/blue'>Leonardo</a></p>
+		<p><a href='/turtle/blue'>Leonardo</a></p>
 	</div>
 </body>
 </html>
