@@ -5,7 +5,14 @@
 </head>
 <body>
         <div class='main'>
-		<h1>Thank you for Letting us know</h1>
+		<h1>Thank you for contacting Brice</h1>
+		<p>{% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                                {% for message in messages %}
+                                        <p>{{message}}</p>
+                                {% endfor %}
+                        {% endif %}
+                </p>{% endwith %}
 		<p>{{ name }}</p>
 		<p>{{ dojoLoc }}</p>
 		<p>{{ favLang }}</p>

@@ -1,0 +1,50 @@
+#1. city id = 312
+#SELECT customer.first_name, customer.last_name, customer.email, customer.address_id
+#FROM customer
+#JOIN address ON address.address_id = customer.address_id
+#WHERE city_id = 312
+
+#2. all comedy films
+#SELECT film.film_id, film.title, film.description, film.release_year, film.rating, film.special_features, category.name
+#FROM film
+#JOIN film_category ON film.film_id = film_category.film_id
+#JOIN category ON film_category.category_id = category.category_id
+#WHERE category.name = 'Comedy'
+
+#4. store_id = 1 and inside these cities (1, 42, 312 and 459) -> customer first last email address
+#SELECT customer.first_name, customer.last_name, customer.email, address.address, city.city_id
+#FROM customer
+#JOIN store ON customer.store_id = store.store_id
+#JOIN address ON customer.address_id = address.address_id
+#JOIN city ON address.city_id = city.city_id
+#WHERE customer.store_id = 1 AND city.city_id IN (1, 42, 312, 459);
+
+#5 "rating = G" and "special feature = behind the scenes", joined by actor_id = 15? Your query should return the film title, description, release year, rating, and special feature.
+#SELECT film.rating, film.title, film.description, film.release_year, film.special_features
+#FROM film
+#JOIN film_actor ON film.film_id = film_actor.film_id
+#JOIN actor ON film_actor.actor_id = actor.actor_id
+#WHERE film.rating LIKE 'G' AND film_actor.actor_id LIKE 15 AND film.special_features LIKE 'behind the scenes'
+
+#6. all the actors that joined in the film_id = 369? Your query should return the film_id, title, actor_id, and actor_name.
+#SELECT film.film_id, film.title, actor.actor_id, CONCAT(actor.first_name, ' ', actor.last_name) AS actor
+#FROM film
+#JOIN film_actor ON film.film_id = film_actor.film_id
+#JOIN actor ON film_actor.actor_id = actor.actor_id
+#WHERE film.film_id = 369
+
+#7. drama films with a rental rate of 2.99? Your query should return film title, description, release year, rating, special features, and genre 
+#SELECT film.title, film.description, film.release_year, film.rating, film.special_features, film.rental_rate, category.name
+#FROM film
+#JOIN film_category ON film.film_id = film_category.film_id
+#JOIN category ON film_category.category_id = category.category_id
+#WHERE  film.rental_rate LIKE '2.99' AND category.name = 'Drama'
+
+#8. action films with 'Sandra Kilmer' return film title, description, release year, rating, special features, genre (category), and actor's first name and last name
+#SELECT film.title, film.description, film.release_year, film.rating, film.special_features, category.name, CONCAT(actor.first_name, ' ', actor.last_name) AS myactor
+#FROM film
+#JOIN film_category ON film.film_id = film_category.film_id
+#JOIN category ON film_category.category_id = category.category_id
+#JOIN film_actor ON film.film_id = film_actor.film_id
+#JOIN actor ON film_actor.actor_id = actor.actor_id
+#HAVING myactor LIKE 'Sandra Kilmer' AND category.name = 'Action'

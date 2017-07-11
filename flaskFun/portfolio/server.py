@@ -1,8 +1,9 @@
-from flask import Flask, render_template, redirect, request, session
+from flask import Flask, render_template, redirect, request, session, flash
 import random
 
 app = Flask(__name__)
 app.secret_key = "secretKey"
+
 @app.route('/')
 def index():
 	session["win"] = session.get("win", 0)
@@ -17,6 +18,7 @@ def about():
 @app.route('/projects')
 def projects():
 	return render_template('projects.html')
+
 @app.route("/process_play", methods=["POST"])
 def process_play():
     opponentHand = random.randint(0,2)
@@ -57,12 +59,43 @@ def endGame():
     session.pop("tie")
     return redirect("/")
 
-@app.route('/survey', methods=['POST'])
+@app.route('/process_survey', methods=['POST'])
+def process_survey():
+	print request.form
+	session['name'] = request.form['name']
+	session['dojoLoc'] = request.form['dojoLoc']
+	session['favLang'] = request.form['favLang']
+	session['comment'] = request.form['comment']
+	cFormVerify = [session['name'], session['dojoLoc'], session['favLang'], session['comment']]
+	
+	if len(request.form['name']) < 1:
+                flash('Name cannot be empty!')
+		return redirect('/survey')
+        else:
+                flash('Success! Your name is {}'.format(request.form['name']))
+        if len(request.form['dojoLoc']) < 1:
+                flash('Dojo Location cannot be empty!')  
+                return redirect('/survey')
+        else:
+                flash('Success! Your Dojo Location is {}'.format(request.form['dojoLoc']))
+	if len(request.form['favLang']) < 1:
+                flash('Favorite Language cannot be empty!')  
+                return redirect('/survey')
+        else:
+                flash('Success! Your Favorite Language is {}'.format(request.form['favLang']))
+	if len(request.form['comment']) < 1: 
+		flash('There are no comments')
+		return redirect('/survey')
+	else:
+		flash('Your comments: {}'.format(request.form['comment']))
+	return redirect('/survey')
+
+@app.route('/survey')
 def survey():
-	name = request.form['name']
-	dojoLoc = request.form['dojoLoc']
-	favLang = request.form['favLang']
-	comment = request.form['comment']
-	return render_template('survey.html',name=name,dojoLoc=dojoLoc,favLang=favLang,comment=comment)
+	name = session['name']
+        dojoLoc = session['dojoLoc']
+        favLang = session['favLang']
+        comment = session['comment']
+	return render_template('/survey.html')
 
 app.run(debug=True)

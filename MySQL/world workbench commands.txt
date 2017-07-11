@@ -1,0 +1,46 @@
+Workbench World SQL Commands by Brice
+
+1. select * FROM languages
+where language = "Slovene"
+order by is_official
+
+#2. select toal cities in each contry
+#SELECT	countries.name, COUNT(cities.id)
+#FROM countries
+#JOIN cities ON cities.country_id = countries.id
+#GROUP BY countries.id
+
+#3. cities in Mex pop > 500K decending order
+#SELECT cities.name, cities.population
+#FROM cities
+#JOIN countries ON cities.country_id = countries.id
+#WHERE countries.name = "Mexico" AND cities.population > 500000
+
+#4. Languages spoken > 89%
+#SELECT countries.name, languages.language, languages.percentage
+#FROM languages
+#JOIN countries ON languages.country_id = countries.id
+#WHERE languages.percentage > 89
+#ORDER BY languages.percentage DESC
+
+#5. countries with surface are < 501 & pop > 100000
+#SELECT countries.name, countries.surface_area, countries.population
+#FROM countries
+#WHERE countries.surface_area < 501 AND countries.population > 100000
+
+#6. countries only Constitutional M & capital > 200 and life expt > 75
+#SELECT countries.name, countries.government_form, countries.capital
+#FROM countries
+#WHERE countries.government_form = 'Constitutional Monarchy' AND countries.life_expectancy > 75 AND countries.capital > 200;
+
+#7. 
+#SELECT countries.name, cities.name, cities.district, cities.population
+#FROM countries
+#JOIN cities ON cities.country_id = countries.id
+#WHERE cities.district = 'Buenos Aires' AND cities.population > 500000
+
+#8. summary number of countries within each region name descending order
+#SELECT countries.region, COUNT(countries.region)
+#FROM countries
+#GROUP BY countries.region 
+#ORDER BY COUNT(countries.region) DESC

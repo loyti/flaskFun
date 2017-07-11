@@ -1,0 +1,50 @@
+<html>
+<head>
+	<title>Friends</title>
+	<link rel="stylesheet" type="text/css" href="/static/style.css"> 
+</head>
+<body>
+	<h1>Friends:</h1>
+	<table>
+		<thead>
+			<tr>
+				<td><p>ID</p></td>
+				<td><p>Name</p></td>
+				<td><p>Age</p></td>
+				<td><p>Friend Since</p></td>
+				<td><p>Occupation</p></td>
+			</tr>
+		</thead>
+		<tbody>
+			{% for friend in all_friends: %}
+			<tr>
+				<td><p>{{ friend['id'] }}</p></td>
+				<td><p>{{ friend['first_name'] }} {{ friend['last_name'] }}</p></td>
+				<td><p>{{ friend['age'] }}</p></td>
+				<td><p>{{ friend['friendSince'] }}</p></td>
+				<td><p>{{ friend['occupation'] }}</p></td>
+			</tr>
+			{% endfor %}
+		</tbody>
+ 	</table>
+	<hr>
+	<h2>Add a Friend</h2>
+	{% with messages = get_flashed_messages() %}
+                {% if messages %}
+                        <ul class=flashes>
+                        {% for message in messages %}
+                                <li>{{ message }}</li>
+                        {% endfor %}
+                        </ul>
+                {% endif %}
+        {% endwith %}
+	<form action='/friends' method='POST'>
+		<label for="first_name">First Name:<input type="text" name="first_name" id="first_name"></label>
+		<label for="last_name">Last Name:<input type="text" name="last_name" id="last_name"></label>
+		<label for="age">Age:<input type="text" name="age" id="age"></label>
+		<label for="friendSince">Friend Since:<input type="date" name="friendSince" id="friendSince"></label>
+		<label for="occupation">Occupation:<input type="text" name="occupation" id="occupation"></label>
+		<input type="submit" value="JOIN FRIENDS">
+	</form>
+</body>
+</html>
