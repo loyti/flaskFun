@@ -1,0 +1,74 @@
+h1 {
+        margin: 20px;
+        padding: 20px;
+        background: rgba(0,0,0,.5);
+        color: #fff;
+}
+
+.success {
+        margin: 20px;
+        padding: 20px;
+        background: rgba(0,255,0,.95);
+        color: #fff;
+}
+.fail {
+	margin: 20px;
+        padding: 20px;
+        background: rgba(255,0,0,.95);
+        color: #fff
+}
+thead {
+        margin: 10px;
+        padding: 10px;
+        background: rgba(0,0,0,.5);
+        color: #fff;
+        font-weight: bolder;
+}
+
+p {
+        margin: 10px;
+        padding: 10px;
+        background: rgba(0,0,0,.5);
+        color: #fff;
+        text-align: center;
+}
+
+table {
+        text-align: center;
+        margin: 10px;
+        padding: 10px;
+}
+
+tr {
+        background: rgba(0,0,0,.25);
+}
+
+input[type=text] {
+        display: inline-block;
+}
+
+input[type=int] {
+        display: inline-block;
+}
+
+input[type=date] {
+        display: inline-block;
+}
+
+input[type=submit]{
+	margin: 20px;
+	padding: 20px;
+	background: rgba(0,0,0,.5)
+	color: #fff;
+	font-size: 20px;
+	font-weight: bolder;
+}
+
+#eVerify{
+        margin: 20px;
+        padding: 20px;
+        background: rgba(0,0,0,.5)
+        color: #fff;
+        font-size: 20px;
+        font-weight: bolder;
+}

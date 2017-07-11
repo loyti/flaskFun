@@ -1,0 +1,22 @@
+<html>
+<head>
+        <title>Email Verification</title>
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+        <h1>Register Your Email</h1>
+	{% with messages = get_flashed_messages() %}
+                {% if messages %}
+			<h2 class='fail'>
+                        {% for message in messages %}
+                        	{{ message }}
+                        {% endfor %}
+			</h2>
+                {% endif %}
+	{% endwith %}
+	<form action='/success' method='POST' id='eVerify'>
+                <label for="email">Email:<input type="text" name="email" id="email"></label>
+		<input type="submit" value="Verify Email">
+        </form>
+</body>
+</html>

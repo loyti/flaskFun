@@ -1,0 +1,23 @@
+<html>
+<head>
+        <title>Email Verification</title>
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+	<h2>Email Registrations</h2>
+        {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                        <h2 class='success'>
+                        {% for message in messages %}
+                                {{ message }}
+                        {% endfor %}
+                        </h2>
+                {% endif %}
+        {% endwith %}
+	{% for email in all_emails: %}
+		<p>{{ email['id'] }}</p>
+		<p>{{ email['email'] }}</p>
+		<p>{{ email['created_at'] }}</p>
+	{% endfor %}
+</body>
+</html>
