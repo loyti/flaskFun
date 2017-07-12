@@ -1,0 +1,17 @@
+label {
+	display: block;
+	width: 300px;
+	text-align: right;
+}
+
+fieldset {
+	display: inline;
+}
+
+.errors {
+	color: red;
+}
+
+.success {
+	color: green;
+}

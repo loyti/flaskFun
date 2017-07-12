@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="/static/style.css"> 
+	<title>Login & Registration</title>
+</head>
+<body>
+	<h1>Login & Registration Demo</h1>
+	{% with messages = get_flashed_messages(with_categories=true) %}
+		{% if messages %}
+		<ul class="flashes">
+			{% for category, message in messages %}
+			<li class="{{ category }}">{{ message }}</li>
+		  	{% endfor %}
+		</ul>
+		{% endif %}
+	{% endwith %}
+	<form action="/register" method="POST">
+		<fieldset>
+		<label>First Name:
+			<input type="text" name="first_name">
+		</label>
+		<label>Last Name:
+                        <input type="text" name="last_name">
+                </label>
+		<label>Email:
+                        <input type="text" name="email">
+                </label>
+		<label>Password:
+                        <input type="password" name="password">
+                </label>
+		<label>Confirm Password:
+                        <input type="password" name="passconf">
+                </label>
+		<input type="submit" value="Register Now">
+		</fieldset>
+	</form>
+	<form action="/login" method="POST">
+                <fieldset>
+                <label>Email:
+                        <input type="text" name="email">
+                </label>
+                <label>Password:
+                        <input type="password" name="password">
+                </label>
+                <input type="submit" value="Login">
+                </fieldset>
+        </form>
+</body>
+</html>
